@@ -22,9 +22,8 @@ dependencies {
         // core platform APIs, so it also loads in any other IntelliJ-based IDE.
         intellijIdeaCommunity("2025.2.6")
 
-        // Tooling used by the release workflow.
+        // Plugin Verifier, run by the release workflow.
         pluginVerifier()
-        zipSigner()
     }
 
     // Pure-Java HDF5 reader (no native libraries). Bundled into the plugin.
@@ -43,15 +42,8 @@ intellijPlatform {
         }
     }
 
-    // Marketplace plugin signing. Values come from the environment in CI; when
-    // they are absent (local builds) the signPlugin task simply isn't runnable.
-    signing {
-        certificateChain = providers.environmentVariable("CERTIFICATE_CHAIN")
-        privateKey = providers.environmentVariable("PRIVATE_KEY")
-        password = providers.environmentVariable("PRIVATE_KEY_PASSWORD")
-    }
-
     // Marketplace publishing token (set as the PUBLISH_TOKEN CI secret).
+    // The plugin is published unsigned; JetBrains Marketplace handles distribution.
     publishing {
         token = providers.environmentVariable("PUBLISH_TOKEN")
     }
