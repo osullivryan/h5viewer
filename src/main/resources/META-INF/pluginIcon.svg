@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <!-- Stacked data layers: a multidimensional / hierarchical dataset, lit from above. -->
+  <path fill="#3574F0" d="M20 22 L33.75 28.5 L20 35 L6.25 28.5 Z"/>
+  <path fill="#4B83F0" d="M20 14.75 L33.75 21.25 L20 27.75 L6.25 21.25 Z"/>
+  <path fill="#6398F5" d="M20 5 L33.75 11.5 L20 18 L6.25 11.5 Z"/>
+</svg>

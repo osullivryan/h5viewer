@@ -1,0 +1,15 @@
+.gradle/
+build/
+out/
+*.class
+
+# Kotlin compiler caches
+.kotlin/
+
+# IntelliJ Platform Gradle Plugin sandbox / caches
+.intellijPlatform/
+
+# IDE project files
+/.idea/
+/.junie/
+*.iml

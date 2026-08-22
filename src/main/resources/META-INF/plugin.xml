@@ -1,0 +1,28 @@
+<idea-plugin>
+    <id>com.h5viewer</id>
+    <name>HDF5 Viewer</name>
+    <vendor email="osullivryan@gmail.com">Ryan O'Sullivan</vendor>
+
+    <description><![CDATA[
+        <p>Viewer for HDF5 files (<code>.h5</code>, <code>.hdf5</code>, <code>.hdf</code>, <code>.he5</code>).</p>
+        <ul>
+            <li>Browse the nested group/dataset hierarchy as a tree.</li>
+            <li>Inspect attributes on any group or dataset.</li>
+            <li>View dataset contents in a table/array viewer, including slicing of
+                N-dimensional arrays and column display of compound types.</li>
+        </ul>
+        <p>Reading is powered by the pure-Java <a href="https://github.com/jamesmudd/jhdf">jHDF</a>
+        library, so no native libraries are required. Files are opened read-only.</p>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType
+                name="HDF5"
+                implementationClass="com.h5viewer.Hdf5FileType"
+                fieldName="INSTANCE"
+                extensions="h5;hdf5;hdf;he5"/>
+        <fileEditorProvider implementation="com.h5viewer.Hdf5FileEditorProvider"/>
+    </extensions>
+</idea-plugin>
