@@ -39,3 +39,12 @@ jobs:
         with:
           name: h5viewer-plugin
           path: build/distributions/*.zip
+
+      - name: Build HDF5 JDBC driver
+        run: ./gradlew :jdbc:shadowJar
+
+      - name: Upload JDBC driver artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: h5-jdbc-driver
+          path: jdbc/build/libs/*-all.jar

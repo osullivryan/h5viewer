@@ -67,7 +67,10 @@ public final class Hdf5Driver implements Driver {
             String schema = schemaName(file);
             calcite.getRootSchema().add(schema, new Hdf5Schema(hdf));
             calcite.setSchema(schema);
-            return base;
+            // Avatica throws unchecked UnsupportedOperationException for some optional JDBC
+            // methods; wrap the connection so those surface as SQLFeatureNotSupportedException,
+            // which introspecting tools (e.g. the IntelliJ Database browser) tolerate.
+            return JdbcGuard.guard(base);
         } catch (Throwable t) {
             try {
                 hdf.close();
